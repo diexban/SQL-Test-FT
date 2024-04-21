@@ -214,4 +214,27 @@ Your screen should look similar to this as a result:
 
 ![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/21ac8f0f-f7f7-469b-98e2-0cda89f39b90)
 
+## Third Part 
+
+To finalize this project I wanted to see how databases tie themselves to a frontend application on this part I replicated the same MySQL database that I created in step two and tied it to a simple Login page using PHP you can access the page via:
+
+### http://testloginsite.free.nf/
+
+it should look like this:
+
+![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/bb099cb6-ab65-4109-b18a-f9295d8a59f2)
+
+For this website, if the username and password are not on the linked database it will give us an error, and if we input the correct credentials it will give us a successful login screen
+
+As a reminder, these are the 3 users created in the database
+
+![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/359ad379-22fd-44c7-8671-e7d27a154a08)
+
+
+This would conclude the documentation
+
+### Thank you! 
+
+
+
 
