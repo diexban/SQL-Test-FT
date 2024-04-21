@@ -8,8 +8,8 @@
 
 **MySQL Database hosted on: freedb.tech**
 
-*Extra tools and languages used in the third part
-**Visual Studio Code with PHP Extension
+## Extra tools and languages used in the third part
+**Visual Studio Code with PHP Extension**
 
 **HTML**
 
