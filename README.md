@@ -8,6 +8,15 @@
 
 **MySQL Database hosted on: freedb.tech**
 
+*Extra tools and languages used in the third part
+**Visual Studio Code with PHP Extension
+
+**HTML**
+
+**CSS**
+
+Markup used for documentation.
+
 ## Intro
 
 This Repository includes two SQL files to be taken up for consideration
