@@ -173,6 +173,10 @@ Finally, in summary, this query calculates the balance for each user by summing 
 
 For the second part of this exercise, I replicated the database I created in SQL Server to a hosted MySQL database. To check this database please connect to it via MySQL Workbench using the following parameters and credentials.
 
+Username: freedb_testuser
+
+Password: RMt@QmWfz5NF6%v
+
 ![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/96d7d695-793a-466f-b87e-0df451fb2c61)
 
 The creation code for this database is more or less the same as the one used for SQL Server, there are a few syntax differences between programs.
