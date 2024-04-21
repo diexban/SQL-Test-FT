@@ -1,6 +1,18 @@
+## Tools used for this exercise:
+
+### **SQL Server 2019**
+
+### **MySQL Workbench**
+
+### **phpMyAdmin**
+
+### MySQL Database hosted on: freedb.tech
+
+## Intro
+
 This Repository includes two SQL files to be taken up for consideration
 
-In this README I will go step by step explaining my reasoning behind the included code, I won't include all the code as this can be repetitive but I will include new constrains that can be explained. 
+In this README I will go step by step explaining my reasoning behind the included code, I won't include all the code as this can be repetitive but I will include new constraints that can be explained. 
 
 First, we will explain "Diego Trejos - Fast Track Technical Test.sql" Please note that this file was created in SQL Server 2019, you can run the file as is in that environment in an already created test database, this will create the mentioned tables, insert dummy data and create the necessary queries mentioned in the test
 
@@ -10,7 +22,7 @@ Alternatively, we can run this in an online compiler such as **onecompiler.com**
 
 *drop table if exists Users;*
 
-The first part of the file calls the drop function which tells the database that If the table exists, delete it. I implemented it just so I can run any new modifications to the script without creating a "table already exist error" this is just for testing purposes.
+The first part of the file calls the drop function which tells the database that If the table exists, delete it. I implemented it just so I can run any new modifications to the script without creating a "table already exist error" This is just for testing purposes.
 
 -- Create Users Table
 
@@ -52,7 +64,8 @@ The next part of the code introduces dummy data to our created tables so we can 
 For the queries, I will provide a quick summary of what each query does as a more thorough explanation can be given on a call  
 
 
---  Query #1 List All Users Having 3 Deposits Or More
+
+## --  Query #1 List All Users Having 3 Deposits Or More
 
 *SELECT U.UserId, U.UserName*
 
@@ -79,7 +92,8 @@ For the queries, I will provide a quick summary of what each query does as a mor
 This query identifies users who have made 3 or more deposits. It does so by counting the number of deposits each user has made in the *Transactions* table and then joining this information with the *Users* table to retrieve the corresponding user IDs and names. Finally, it orders the results alphabetically by user name.
 
 
---  Query #2 List All Users Having Only 1 Withdrawal
+
+## --  Query #2 List All Users Having Only 1 Withdrawal
 
 *SELECT U.UserId, U.UserName*
 
@@ -102,7 +116,9 @@ This query identifies users who have made 3 or more deposits. It does so by coun
 
 This query retrieves users who have made only one withdrawal. It first identifies user IDs with exactly one withdrawal from the *Transactions* table and then selects the corresponding user IDs and names from the *Users* table, ordering the results alphabetically by user name.
 
---  Query #3 List 3 Users That Have Made The Highest Deposits
+
+
+## --  Query #3 List 3 Users That Have Made The Highest Deposits
 
 *SELECT TOP 3 U.UserId, U.UserName, Concat (SUM(T.TransactionAmount), ' €') AS TotalDeposits*
 
@@ -118,7 +134,9 @@ This query retrieves users who have made only one withdrawal. It first identifie
 
 This query identifies the top 3 users who have made the highest deposits. It joins the *Users* table with the *Transactions* table, filters for deposit transactions, groups the data by user, calculates the total deposits for each user and then selects the top 3 users based on their total deposits.
 
---  Query #4 List all deposits for users. Display UserId, UserName, DepositDate, DepositAmount
+
+
+## --  Query #4 List all deposits for users. Display UserId, UserName, DepositDate, DepositAmount
 
 *SELECT U.UserId, U.UserName, T.TransactionDate AS DepositDate, Concat (T.TransactionAmount, ' €') AS DepositAmount*
 
@@ -133,7 +151,8 @@ This query identifies the top 3 users who have made the highest deposits. It joi
 This query retrieves all deposit transactions for users. It joins the *Users* table with the *Transactions table*, filters for deposit transactions, selects the user ID, user name, deposit date, and deposit amount, and finally orders the results alphabetically by user name.
 
 
---  Query #5 Calculate balances of all users
+
+## --  Query #5 Calculate balances of all users
 
 *SELECT U.UserId, U.UserName,*
 
@@ -150,5 +169,5 @@ This query retrieves all deposit transactions for users. It joins the *Users* ta
 Finally, in summary, this query calculates the balance for each user by summing their deposit amounts and subtracting their withdrawal amounts. It includes all users, even those with no transactions, and orders the results by balance in descending order.
 
 
-
+## Second Part
 
