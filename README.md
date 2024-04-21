@@ -188,7 +188,7 @@ Password: RMt@QmWfz5NF6%v
 
 ![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/96d7d695-793a-466f-b87e-0df451fb2c61)
 
-The creation code for this database is more or less the same as the one used for SQL Server, there are a few syntax differences between programs.
+The creation code for this database is more or less the same as the one used for SQL Server, there as are a few syntax differences between programs.
 
 As the queries would have been mostly the same, for this database I created those queries as views:
 
