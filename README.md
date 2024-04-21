@@ -175,3 +175,28 @@ For the second part of this exercise, I replicated the database I created in SQL
 
 ![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/96d7d695-793a-466f-b87e-0df451fb2c61)
 
+The creation code for this database is more or less the same as the one used for SQL Server, there are a few syntax differences between programs.
+
+As the queries would have been mostly the same, for this database I created those queries as views:
+
+![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/2b010e87-3fd2-4677-9f6a-b053ec04ee6d)
+
+So to get the results of the created views please run the attached SQL Script in Workbench, it should look something like this.
+
+*SELECT * FROM Users_With_Three_or_More_Deposits;*
+
+*SELECT * FROM Users_With_One_Withdrawal;*
+
+*SELECT * FROM Top_3_Users_Highest_Deposits;*
+
+*SELECT * FROM All_Deposits_For_Users;*
+
+*SELECT * FROM User_Balances;*
+
+Please also make sure you have the *Schema: freedb_Work_Test_Project_FT* selected
+
+Your screen should look similar to this as a result:
+
+![image](https://github.com/diexban/SQL-Test-FT/assets/166546790/21ac8f0f-f7f7-469b-98e2-0cda89f39b90)
+
+
