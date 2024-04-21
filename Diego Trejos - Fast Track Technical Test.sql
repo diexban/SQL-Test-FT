@@ -15,8 +15,8 @@ CREATE TABLE Users (
 
 CREATE TABLE Transactions (
     TransactionId INT PRIMARY KEY IDENTITY(1,1),
-    UserId INT,
-    TransactionType VARCHAR(10) NOT NULL, -- 'Deposit' or 'Withdrawal'
+    UserId INT NOT NULL,
+    TransactionType VARCHAR(10) NOT NULL CHECK (TransactionType IN ('Deposit', 'Withdrawal')),
     TransactionAmount DECIMAL(10, 2) NOT NULL,
     TransactionDate DATETIME NOT NULL,
     FOREIGN KEY (UserId) REFERENCES Users(UserId)
@@ -48,7 +48,7 @@ VALUES
 	(3, 'Withdrawal', 80.00, '2024-04-23');
 
 
---	Query #1 List All Users Having 3 Deposits Or More
+--  Query #1 List All Users Having 3 Deposits Or More
 
 SELECT U.UserId, U.UserName
 FROM Users U
@@ -63,7 +63,7 @@ ON U.UserId = Deposits.UserId
 ORDER BY U.UserName;
 
 
---	Query #2 List All Users Having Only 1 Withdrawal
+--  Query #2 List All Users Having Only 1 Withdrawal
 
 SELECT U.UserId, U.UserName
 FROM Users U
@@ -77,7 +77,7 @@ WHERE U.UserId IN (
 ORDER BY U.UserName;
 
 
---	Query #3 List 3 Users That Have Made The Highest Deposits
+--  Query #3 List 3 Users That Have Made The Highest Deposits
 
 SELECT TOP 3 U.UserId, U.UserName, Concat (SUM(T.TransactionAmount), ' €') AS TotalDeposits
 FROM Users U
@@ -87,7 +87,7 @@ GROUP BY U.UserId, U.UserName
 ORDER BY TotalDeposits DESC;
 
 
---	Query #4 List all deposits for users. Display UserId, UserName, DepositDate, DepositAmount
+--  Query #4 List all deposits for users. Display UserId, UserName, DepositDate, DepositAmount
 
 SELECT U.UserId, U.UserName, T.TransactionDate AS DepositDate, Concat (T.TransactionAmount, ' €') AS DepositAmount
 FROM Users U
@@ -95,7 +95,7 @@ JOIN Transactions T ON U.UserId = T.UserId
 WHERE T.TransactionType = 'Deposit'
 ORDER BY U.UserName;
 
---	Query #5 Calculate balances of all users
+--  Query #5 Calculate balances of all users
 
 SELECT U.UserId, U.UserName,
    Concat (SUM(CASE WHEN T.TransactionType = 'Deposit' THEN T.TransactionAmount ELSE -T.TransactionAmount END), ' €') AS Balance
