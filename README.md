@@ -10,6 +10,16 @@ Alternatively, we can run this in an online compiler such as **onecompiler.com**
 
 *drop table if exists Users;*
 
-The first part of the file calls the drop function which tells the database that If the table exists, delete it. I implemented it just so I can run any new modifications to the script without creating a "table already exist error" this is just for testing purposes
+The first part of the file calls the drop function which tells the database that If the table exists, delete it. I implemented it just so I can run any new modifications to the script without creating a "table already exist error" this is just for testing purposes.
 
+-- Create Users Table
+
+*CREATE TABLE Users (*
+
+  *UserId INT PRIMARY KEY IDENTITY(1,1),*
+    
+  *UserName VARCHAR(50) UNIQUE NOT NULL,*
+    
+  *Password VARCHAR(50) NOT NULL*
+    
 
