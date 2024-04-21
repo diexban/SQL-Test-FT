@@ -1,12 +1,12 @@
 ## Tools used for this exercise:
 
-### **SQL Server 2019**
+**SQL Server 2019**
 
-### **MySQL Workbench**
+**MySQL Workbench**
 
-### **phpMyAdmin**
+**phpMyAdmin**
 
-### MySQL Database hosted on: freedb.tech
+**MySQL Database hosted on: freedb.tech**
 
 ## Intro
 
