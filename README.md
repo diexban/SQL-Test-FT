@@ -28,3 +28,27 @@ So here we are telling the program to create a table with 3 columns, *UserID* wi
 The next column we call *UserName* assign a *VARCHAR* datatype with a length of 50 characters, assign it a UNIQUE constrain as no two persons can have the same username in our platform and we also assign it the *NOT NULL* so the value can not be NULL meaning every user has to have a username.
 
 Password column does not introduce anything new to explain
+
+Next up when we create the *Transactions* table we have the following code:
+
+   *TransactionType VARCHAR(10) NOT NULL CHECK (TransactionType IN ('Deposit', 'Withdrawal')),*
+   
+   *TransactionAmount DECIMAL(10, 2) NOT NULL,*
+   
+   *TransactionDate DATETIME NOT NULL,*
+   
+   *FOREIGN KEY (UserId) REFERENCES Users(UserId)*
+
+In this part of the SQL code I included the *CHECK* Constrain applied to the *TransactionType* column to ensure that the values in this column are either *'Deposit', or 'Withdrawal'* to maintain data integrity
+
+The *DECIMAL* constrain means that the values in this column will store decimal numbers the *(10, 2)* part means of up to 10 digits where 2 digits are reserved for the fractional part.
+
+Next up we see the newly introduced *DATETIME* which means that the column will store date and time values.
+
+At the end of this snippet we have *FOREIGN KEY (UserId)* and *REFERENCES Users(UserId)* this is very important as this establishes a relationship between the *Users* table and the *Transactions* table, specifically it refers to the UserId column in the Users table. This will help us link which transaction belongs to which user.
+
+The next part of the code introduces dummy data to our created tables so we can start creating the queries. these are pretty straightforward as they use the *INSERT INTO* function.
+
+
+QUERIES:
+
