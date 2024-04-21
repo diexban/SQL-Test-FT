@@ -23,3 +23,8 @@ The first part of the file calls the drop function which tells the database that
   *Password VARCHAR(50) NOT NULL*
     
 
+So here we are telling the program to create a table with 3 columns, *UserID* with a data type on *INT* which means it stores integer values or whole numbers, *PRIMARY KEY* means that this will serve as a unique identifier. *(1,1)* means that the value in this column will be auto-generated and incremented by one, for example when Diego signs up and is the first one to do so, he will be assigned the number 1, when Arturo signs up he will be assigned the number 2
+
+The next column we call *UserName* assign a *VARCHAR* datatype with a length of 50 characters, assign it a UNIQUE constrain as no two persons can have the same username in our platform and we also assign it the *NOT NULL* so the value can not be NULL meaning every user has to have a username.
+
+Password column does not introduce anything new to explain
