@@ -49,6 +49,106 @@ At the end of this snippet we have *FOREIGN KEY (UserId)* and *REFERENCES Users(
 
 The next part of the code introduces dummy data to our created tables so we can start creating the queries. these are pretty straightforward as they use the *INSERT INTO* function.
 
+For the queries, I will provide a quick summary of what each query does as a more thorough explanation can be given on a call  
 
-QUERIES:
+
+--  Query #1 List All Users Having 3 Deposits Or More
+
+*SELECT U.UserId, U.UserName*
+
+*FROM Users U*
+
+*JOIN (*
+
+   *SELECT UserId*
+   
+   *FROM Transactions*
+   
+   *WHERE TransactionType = 'Deposit'*
+   
+   *GROUP BY UserId*
+   
+   *HAVING COUNT(*) >= 3*
+   
+*) AS Deposits*
+
+*ON U.UserId = Deposits.UserId*
+
+*ORDER BY U.UserName;*
+
+This query identifies users who have made 3 or more deposits. It does so by counting the number of deposits each user has made in the *Transactions* table and then joining this information with the *Users* table to retrieve the corresponding user IDs and names. Finally, it orders the results alphabetically by user name.
+
+
+--  Query #2 List All Users Having Only 1 Withdrawal
+
+*SELECT U.UserId, U.UserName*
+
+*FROM Users U*
+
+*WHERE U.UserId IN (*
+
+   *SELECT UserId*
+   
+   *FROM Transactions*
+   
+   *WHERE TransactionType = 'Withdrawal'*
+   
+*group by UserId*
+
+*having count(*)=1*
+*)*
+
+*ORDER BY U.UserName;*
+
+This query retrieves users who have made only one withdrawal. It first identifies user IDs with exactly one withdrawal from the *Transactions* table and then selects the corresponding user IDs and names from the *Users* table, ordering the results alphabetically by user name.
+
+--  Query #3 List 3 Users That Have Made The Highest Deposits
+
+*SELECT TOP 3 U.UserId, U.UserName, Concat (SUM(T.TransactionAmount), ' €') AS TotalDeposits*
+
+*FROM Users U*
+
+*JOIN Transactions T ON U.UserId = T.UserId*
+
+*WHERE T.TransactionType = 'Deposit'*
+
+*GROUP BY U.UserId, U.UserName*
+
+*ORDER BY TotalDeposits DESC;*
+
+This query identifies the top 3 users who have made the highest deposits. It joins the *Users* table with the *Transactions* table, filters for deposit transactions, groups the data by user, calculates the total deposits for each user and then selects the top 3 users based on their total deposits.
+
+--  Query #4 List all deposits for users. Display UserId, UserName, DepositDate, DepositAmount
+
+*SELECT U.UserId, U.UserName, T.TransactionDate AS DepositDate, Concat (T.TransactionAmount, ' €') AS DepositAmount*
+
+*FROM Users U*
+
+*JOIN Transactions T ON U.UserId = T.UserId*
+
+*WHERE T.TransactionType = 'Deposit'*
+
+*ORDER BY U.UserName;*
+
+This query retrieves all deposit transactions for users. It joins the *Users* table with the *Transactions table*, filters for deposit transactions, selects the user ID, user name, deposit date, and deposit amount, and finally orders the results alphabetically by user name.
+
+
+--  Query #5 Calculate balances of all users
+
+*SELECT U.UserId, U.UserName,*
+
+   *Concat (SUM(CASE WHEN T.TransactionType = 'Deposit' THEN T.TransactionAmount ELSE -T.TransactionAmount END), ' €') AS Balance*
+   
+*FROM Users U*
+
+*LEFT JOIN Transactions T ON U.UserId = T.UserId*
+
+*GROUP BY U.UserId, U.UserName*
+
+*ORDER BY SUM(CASE WHEN T.TransactionType = 'Deposit' THEN T.TransactionAmount ELSE -T.TransactionAmount END) DESC;*
+
+Finally, in summary, this query calculates the balance for each user by summing their deposit amounts and subtracting their withdrawal amounts. It includes all users, even those with no transactions, and orders the results by balance in descending order.
+
+
+
 
