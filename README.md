@@ -1,6 +1,6 @@
 This Repository includes two SQL files to be taken up for consideration
 
-In this README I will go step by step explaining my reasoning behind the included code
+In this README I will go step by step explaining my reasoning behind the included code, I won't include all the code as this can be repetitive but I will include new constrains that can be explained. 
 
 First, we will explain "Diego Trejos - Fast Track Technical Test.sql" Please note that this file was created in SQL Server 2019, you can run the file as is in that environment in an already created test database, this will create the mentioned tables, insert dummy data and create the necessary queries mentioned in the test
 
