@@ -15,7 +15,7 @@
 
 **CSS**
 
-Markup used for documentation.
+**Markup used for documentation.**
 
 ## Intro
 
